@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    liquid (5.5.0)
+    rack (3.1.4)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
+    rackup (2.1.0)
+      rack (>= 3)
+      webrick (~> 1.8)
+    roda (3.81.0)
+      rack
+    webrick (1.8.1)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  liquid (~> 5.5)
+  rack-cors (~> 2.0)
+  rackup (~> 2.1)
+  roda (~> 3.81)
+
+BUNDLED WITH
+   2.4.22
