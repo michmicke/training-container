@@ -1,0 +1,44 @@
+x-visits: &visits
+  image: docker.io/docker-training/docker-training-visits
+  build:
+    context: ./visits
+  volumes:
+    - visits-data:/data
+  environment:
+    DATABASE_URL: file:/data/prod.db
+
+services:
+  debug:
+    build:
+      dockerfile_inline: |
+        FROM alpine:3.20
+        RUN apk add --update --no-cache \
+            curl=~8.8.0
+  visits-repl:
+    <<: *visits
+    command: node
+  visits-migrate:
+    <<: *visits
+    command:
+    - prisma
+    - migrate
+    - deploy
+  visits-sqlite:
+    <<: *visits
+    image: docker.io/docker-training/docker-training-visits-sqlite
+    build:
+      context: ./visits
+      dockerfile_inline: |
+        FROM alpine:3.20
+        RUN apk add --update --no-cache \
+            sqlite=~3.45.3
+        CMD ["sqlite3"]
+  visits-prisma-studio:
+    <<: *visits
+    command:
+    - prisma
+    - studio
+    - --hostname # hostname seems not to be recognized by prisma studio command
+    - 0.0.0.0
+    ports:
+    - 5555:5555
