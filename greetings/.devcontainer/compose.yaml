@@ -1,0 +1,8 @@
+services:
+  greetings:
+    image: docker.io/docker-training/docker-training-greetings-dev
+    build:
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ./greetings:/srv/
+
