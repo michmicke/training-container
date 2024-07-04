@@ -6,7 +6,7 @@
 # Setup
 
 1. `bundle install`
-2. `CORS_ORIGIN=... bundle exec rackup`
+2. `CORS_ORIGIN=... bin/rackup`
 
 # Usage
 
@@ -16,9 +16,11 @@ HTTP/1.1 200 OK
 content-type: application/json
 Content-Length: 28
 
-{"greeting":"Hello Theodor"}
+{"greeting":"Hello Theodor","count":1}
 ```
 
 # Configuration
 
 - use `CORS_ORIGIN` to allow requests from that origin.
+- use `OLD_STAGER_ENABLED=1` and `VISITS_BACKEND=http://...` to connect the
+  stateful counting backend.
