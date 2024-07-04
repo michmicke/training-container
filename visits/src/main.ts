@@ -12,7 +12,7 @@ const server = createServer(app);
 const prisma = new PrismaClient();
 
 app.post('/visits', async (req, res) => {
-  const userIdentifier = req.body.userIdentifier;
+  const userIdentifier = req.body.name;
 
   if (userIdentifier) {
     const visits = await countVisits(userIdentifier, prisma);
@@ -35,3 +35,4 @@ app.post('/visits', async (req, res) => {
 server.listen(8080, '0.0.0.0', () => {
   console.info('Server running at port 8080');
 });
+
