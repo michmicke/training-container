@@ -25,6 +25,9 @@ setup.
 1. The podman counterpart to `docker compose` is `podman-compose`. Install this
    tool, too! The neccessary steps are found at
    https://github.com/containers/podman-compose?tab=readme-ov-file#installation
+1. If you have not already, please create an account at
+   [Docker Hub](https://hub.docker.com/signup) and run `docker login` This will
+   prevent us from running into technical problems during the on site workshop.
 
 Awesome! We are all set!
 
