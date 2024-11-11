@@ -1,0 +1,12 @@
+services:
+  web:
+    restart: always
+  frontend:
+    restart: always
+    build:
+      args:
+        VITE_API_BASE_URL: http://192.168.56.42/api
+  greetings:
+    restart: always
+    environment:
+      CORS_ORIGIN: http://192.168.56.42

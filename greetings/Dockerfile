@@ -1,13 +1,16 @@
-FROM ruby:3.3.3
+FROM docker.io/ruby:3.3.3-alpine
 
-ENV RACK_ENV production
-WORKDIR /srv
+RUN apk --no-cache --update add g++ make
+
+WORKDIR /srv/app
+
+ENV RACK_ENV=production
 COPY Gemfile Gemfile.lock ./
 RUN bundle config set deployment true && \
-    bundle config set without development,test && \
-    bundle install
+  bundle config set without development,test && \
+  bundle install
+
+COPY . .
 
 EXPOSE 9292
-COPY . .
-CMD ["/srv/bin/rackup", "-o", "0.0.0.0"]
-
+CMD ["bin/rackup", "-o", "0.0.0.0"]
