@@ -31,4 +31,3 @@ setup.
 
 Awesome! We are all set!
 
-Please read the [Guide](#) and I am looking forward to our workshop!

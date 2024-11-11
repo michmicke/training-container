@@ -2,6 +2,7 @@
 
 - node 22 for building and running
 
+
 # Setup
 
 ## Development
@@ -16,4 +17,8 @@
 
 ## Start
 
-`node dist/main.js`
+`node dist/main.js` (service binding to 0.0.0.0:8080)
+
+## Database Migrations
+
+`prisma migrate deploy`

@@ -8,6 +8,10 @@
 1. `bundle install`
 2. `CORS_ORIGIN=... bin/rackup`
 
+For production you can minimize the installed deps by ignoring the development
+and test groups. You can do this by running `bundle config set without
+development,test`.
+
 # Usage
 
 ```

@@ -6,13 +6,16 @@ class App < Roda
   plugin :json_parser
 
   greeter = Greeter.new
-  greeter.enable_old_stager! if ENV.fetch('OLD_STAGER_ENABLED', false)
-  visits = Visits.new(base_url: ENV.fetch('VISITS_BACKEND'))
+  visits = nil
+  if ENV.fetch('OLD_STAGER_ENABLED', false)
+    greeter.enable_old_stager!
+    visits = Visits.new(base_url: ENV.fetch('VISITS_BACKEND'))
+  end
 
   route do |r|
     r.post "greeting" do
       name = r.params['name'] || 'Visitor'
-      count = visits.(name:)
+      count = visits && visits.(name:)
 
       { greeting: greeter.(name:, count:).strip, count: }
     end
