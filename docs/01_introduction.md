@@ -28,6 +28,14 @@ setup.
 1. If you have not already, please create an account at
    [Docker Hub](https://hub.docker.com/signup) and run `docker login` This will
    prevent us from running into technical problems during the on site workshop.
+1. We will use local VMs to simulate a very simple deployment strategy. For
+   this we will use Vagrant with VirtualBox. You will need both software
+   installed. We can only support Virtualbox as a VM provider. If this poses
+   problems for your installation get in contact with me.
+   1. For vagrant see the installation options in the [dedicated documentation
+      page](https://developer.hashicorp.com/vagrant/downloads).
+   1. For VirtualBox you can find installation instructions
+      [here](https://www.virtualbox.org/wiki/Downloads).
 
 Awesome! We are all set!
 
