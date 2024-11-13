@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: http://192.168.56.42:9292
+  greetings:
+    build: ./greetings
+  visits:
+    build: ./visits
+
