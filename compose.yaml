@@ -1,26 +1,18 @@
 services:
   frontend:
-    image: docker.io/docker-training/docker-training-frontend
-    build:
-      context: ./frontend
-      args:
-        VITE_API_BASE_URL: http://localhost:9292
+    image: 192.168.56.43:80/container-training/frontend:0.1.0
     ports:
       - 8080:80
   greetings:
-    image: docker.io/docker-training/docker-training-greetings
-    build:
-      context: ./greetings
+    image: 192.168.56.43:80/container-training/greetings:0.1.0
     environment:
-      CORS_ORIGIN: localhost:8080
+      CORS_ORIGIN: 192.168.56.42:8080
       VISITS_BACKEND: http://visits:8080
       OLD_STAGER_ENABLED: 1
     ports:
       - 9292:9292
   visits:
-    image: docker.io/docker-training/docker-training-visits
-    build:
-      context: ./visits
+    image: 192.168.56.43:80/container-training/visits:0.1.0
     volumes:
       - visits-data:/data
     environment:
