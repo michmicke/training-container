@@ -70,4 +70,8 @@ cache:
   expire_hours: 24
 HARBOR
 
+cat <<DOCKER > /etc/docker/daemon.json
+{"insecure-registries":["192.168.56.43:80"]}
+DOCKER
+
 harbor/install.sh --with-trivy
