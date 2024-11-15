@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-set -euoxo pipefail 
+set -eux
+
+IP=${1:-192.168.56.43}
+
+which cloud-init && cloud-init status --wait
 
 wget  https://github.com/goharbor/harbor/releases/download/v2.12.0/harbor-online-installer-v2.12.0.tgz
 tar xzvf harbor-online-installer-v2.12.0.tgz
 
 cat <<HARBOR >harbor/harbor.yml
-hostname: 192.168.56.43
+hostname: $IP
 
 http:
   port: 80
@@ -24,7 +28,7 @@ data_volume: /data
 trivy:
   ignore_unfixed: false
   skip_update: false
-  skip_java_db_update: true
+  skip_java_db_update: false
   offline_scan: false
   security_check: vuln,config,secret
   insecure: false
@@ -69,9 +73,5 @@ cache:
   enabled: false
   expire_hours: 24
 HARBOR
-
-cat <<DOCKER > /etc/docker/daemon.json
-{"insecure-registries":["192.168.56.43:80"]}
-DOCKER
 
 harbor/install.sh --with-trivy
