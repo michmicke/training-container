@@ -34,6 +34,7 @@ GEM
     webrick (1.8.1)
 
 PLATFORMS
+  aarch64-linux-musl
   x86_64-linux
 
 DEPENDENCIES
