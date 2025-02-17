@@ -11,8 +11,8 @@
 
 ## Build
 
-1. `VITE_API_BASE_URL=... npm install`
-2. `npm run build`
+1. `npm install`
+2. `VITE_API_BASE_URL=... npm run build`
 
 The static build is placed in `./dist`.
 

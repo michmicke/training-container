@@ -46,7 +46,7 @@ DEPENDENCIES
   roda (~> 3.81)
 
 RUBY VERSION
-   ruby 3.3.3p89
+   ruby 3.3.7p123
 
 BUNDLED WITH
    2.4.22
